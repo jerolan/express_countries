@@ -1,0 +1,4 @@
+--ui bdd
+--reporter dot
+-r test/helpers/setup
+-G

@@ -3,10 +3,10 @@ var mysql = require('mysql')
 var router = express.Router();
 
 var connection = mysql.createConnection({
-  host     : 'us-cdbr-iron-east-04.cleardb.net',
-  user     : 'b8e500c9702fa7',
-  password : '2c744d3f',
-  database : 'heroku_688dc8f33b399ce'
+  host: 'us-cdbr-iron-east-04.cleardb.net',
+  user: 'b8e500c9702fa7',
+  password: '2c744d3f',
+  database: 'heroku_688dc8f33b399ce'
 });
 
 function getCountries() {
@@ -75,7 +75,6 @@ function getCities(stateId) {
   })
 }
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   if (!req.query) {
     res.status(403).json({error: true, message: 'no type'});
