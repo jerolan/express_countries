@@ -77,7 +77,7 @@ function getCities(stateId) {
 
 router.get('/', function(req, res, next) {
   if (!req.query) {
-    res.status(403).json({error: true, message: 'no type'});
+    res.status(403).json({error: true, message: 'empty type'});
   }
 
   const type = req.query.type
@@ -95,7 +95,7 @@ router.get('/', function(req, res, next) {
         res.json(states);
       })
   } else if (type === 'getStates' && !req.query.countryId) {
-    res.status(403).json({error: true, message: 'no countryId'});
+    res.status(403).json({status: 'error', message: 'no countryId'});
   }
 
   if (type === 'getCities' && req.query.stateId) {
@@ -104,8 +104,10 @@ router.get('/', function(req, res, next) {
         res.json(city);
       })
   } else if (type === 'getCities' && !req.query.stateId) {
-    res.status(403).json({error: true, message: 'no stateId'});
+    res.status(403).json({status: 'error', message: 'no stateId'});
   }
+
+  res.status(403).json({status: 'error'});
 });
 
 module.exports = router;
