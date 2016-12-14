@@ -106,8 +106,6 @@ router.get('/', function(req, res, next) {
   } else if (type === 'getCities' && !req.query.stateId) {
     res.status(403).json({status: 'error', message: 'no stateId'});
   }
-
-  res.status(403).json({status: 'error'});
 });
 
 module.exports = router;
